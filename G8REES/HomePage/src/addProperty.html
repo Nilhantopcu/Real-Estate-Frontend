@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style/agent.css">
+    <link rel="stylesheet" type="text/css" href="style/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .img {
+            width: 8px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        div.solid {
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.334);
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .icon-container svg {
+            margin-right: 15px;
+        }
+
+        .da {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-left: 50px;
+            border: 1px solid rgb(179, 86, 110);
+            border-radius: 20px;
+            box-shadow: 0 0 10px #5f5f5f;
+        }
+
+        .da * {
+            gap: 20px;
+            margin: 10px
+        }
+        .popup {
+            height: 200px;
+            width: 400px;
+            background-color: #ffff;
+            border-radius: 6px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            text-align: center;
+            padding: 0 30px 30px;
+            color: #333;
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .open-popup {
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .popup img {
+            width: 100px;
+            margin-top: 20px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup h2 {
+            font-size: 38px;
+            font-weight: 500;
+            margin: 30px 0 10px;
+        }
+
+        .popup button {
+            width: 40%;
+            padding: 15px 0;
+            background: #6fd649;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="topnav">
+        <div class="sidenav">
+            <a href="buy.html">Buy</a>
+            <a href="rent.html">Rent</a>
+            <a href="agent.html">Agent Finder</a>
+            <a href="addproperty.html">Add Property</a>
+        </div>
+        <div class="sidenav logo">
+            <a class="logo-link" href="home.html">
+                <img src="imgs/g8rees.png" alt="Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="sidenav log">
+            <a href="signin.html">Sign out</a>
+        </div>
+    </nav>
+
+    <div class="first" style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div class="home-info " style="padding-top: 10px; padding-left: 10px; ">
+            <h2
+                style="font-size: 30px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: rgb(179,86,110);text-align:center;">
+                Home Information</h2>
+            <div class="content" style="display: flex; flex-direction: row; justify-content: space-between;">
+                <div class="filter" style="padding-left: 10px;">
+                    <div class="search-container">
+                        <select id="Home Type" name="Home Type" placeholder="Home Type" class="search-input">
+                            <option value="any">home-type</option>
+                            <option value="Houses">Houses</option>
+                            <option value="TownHomes">TownHomes</option>
+                            <option value="MultiFamily">MultiFamily</option>
+                            <option value="Apartments">Apartments</option>
+                            <option value="Manufacture">Manufacture</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="search-container">
+                        <select id="Rooms" name="Rooms" placeholder="Rooms" class="search-input">
+                            <option value="Rooms">Rooms</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter">
+                    <div class="search-container">
+                        <select id="languages" name="languages" placeholder="Baths" class="search-input">
+                            <option value="any">baths</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="Photos"
+            style=" justify-content:space-between ; padding-top: 20px; padding-left: 10px; padding-right: 300px;">
+
+            <h2 style=" color: rgb(179,86,110) ;">Photos</h2>
+            <div>
+                <label style="color: rgb(179, 86, 110);" for="imageInput"></label>
+                <input style="color: rgb(179, 86, 110); padding: 10px;" type="file" id="imageInput"
+                    accept="image/png, image/jpg" multiple>
+            </div>
+            <div
+                style="width: 300px; margin: auto; display: flex; flex-direction: row; justify-content: space-between;">
+                <div>
+                    <th><img src="imgs/home.jpg" alt="HTML5 Icon" style="width:80px;height:60px;"></th>
+                </div>
+                <div>
+                    <th><img src=" imgs/home.jpg" alt="HTML5 Icon" style="width:80px;height:60px;"></th>
+                </div>
+                <div>
+                    <th><img src=" imgs/home.jpg" alt="HTML5 Icon" style="width:80px;height:60px;"></th>
+                </div>
+            </div>
+            <div style=" width: 300px; margin: auto; display: flex; flex-direction: row; justify-content:
+                            space-between;">
+                <div>
+                    <th><img src="imgs/home.jpg" alt="HTML5 Icon" style="width:80px;height:60px;"></th>
+                </div>
+                <div>
+                    <th><img src=" imgs/home.jpg" alt="HTML5 Icon" style="width:80px;height:60px;"></th>
+                </div>
+                <div>
+                    <th><img src=" imgs/home.jpg" alt="HTML5 Icon" style="width:80px;height:60px;"></th>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <p
+        style="font-weight: 900; color:rgb(179, 86, 110); position:relative; flex : 0; bottom:30px ; margin-left: 5%; font-size: 30px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-bottom:0; margin-top:0;">
+        Details</p>
+    <p
+        style="font-weight: 900; color:rgb(179, 86, 110); position:relative; flex : 0;text-align: right; bottom:-30px ; margin-right: 33%; font-size: 30px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-bottom:0; margin-top:0;">
+        Options</p>
+
+
+    <div style=" display: flex; flex-direction: row; justify-content: space-between;">
+        <div style="padding-top: 10px; " class="da">
+            <div>
+                <h4 style="color:  rgb(179,86,110);">Price</h4>
+                <input type="text" placeholder="Price" style="width: 200px; height: 40px;">
+            </div>
+            <div>
+                <h4 style="color:  rgb(179,86,110);">Year Built</h4>
+                <input type="text" placeholder="year Built" style="width: 200px; height: 40px;">
+            </div>
+            <div>
+                <h4 style="color:  rgb(179,86,110);">Square Feet</h4>
+                <input type="text" placeholder="Square Feet" style="width: 200px; height: 40px;">
+            </div>
+            <div>
+                <h4 style="color:  rgb(179,86,110);">Key Words</h4>
+                <input type="text" placeholder="Key Words" style="width: 200px; height: 40px;">
+
+            </div>
+        </div>
+        <div style=" display: flex;flex-direction: column;gap:40px; padding-top: 100px;">
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between; ">
+                <div style="padding-right: 50px; ">
+                    <h4 style="color: rgb(179, 86, 110);">Pets</h4>
+                    <div style="display: flex; flex-direction: column; gap :20px ">
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="checkbox" id="allowPaths" style="transform: scale(2.0);">
+                            <label for="vehicle1"> Allow Pets</label>
+                        </div>
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="checkbox" id="allowSmallDogs" style="transform: scale(2.0);">
+                            <label for="vehicle2"> Allow Small Dogs</label>
+                        </div>
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="checkbox" id="allowCats" style="transform: scale(2.0);">
+                            <label for="vehicle3">Allow Cats</label>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-right: 50px; ">
+                    <h4 style="color: rgb(179, 86, 110);">Other Amenities</h4>
+                    <div style="display: flex; flex-direction: column; gap :20px ">
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="checkbox" id="pool" style="transform: scale(2.0);">
+                            <label for="vehicle1"> Have Pool</label>
+                        </div>
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="checkbox" id="sitePark" style="transform: scale(2.0);">
+                            <label for="vehicle2"> On-Site Parkings</label>
+                        </div>
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="checkbox" id="park" style="transform: scale(2.0);">
+                            <label for="vehicle3">Have Park</label>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-right: 50px; ">
+                    <h4 style="color: rgb(179, 86, 110);">For Sale or Rent</h4>
+                    <div style="display: flex; flex-direction: column; gap :20px ">
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="radio" id="sale" style="transform: scale(2.0);">
+                            <label for="vehicle1">Sale</label>
+                        </div>
+                        <div style="display: flex; align-items: center;gap :20px">
+                            <input type="radio" id="rent" style="transform: scale(2.0);">
+                            <label for="vehicle2">Rent</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center ">
+                <button onclick="openPopupContact()" type="submit" id="sub"
+                    style="margin-top:10;height: 40px; width: 50%; background-color: rgb(179,86,110); color: white;">Send
+                    for Approval</button>
+            </div>
+            <div class="popup" id="popup">
+                <img src="imgs/tick.png">
+                <div style="display: flex; flex-direction: column;">
+                    <b style="font-size: 20px; padding-top: 20px;">Thank You!</b>
+                    <div style="font-size: 20px; padding-top: 10px; padding-bottom: 15px;">Your Approval has
+                        sent Successfully!
+                    </div>
+                    <div>
+                        <button type="button" onclick="closePopupContact()">OKEY</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageInput.addEventListener('change', handleImageUpload);
+
+    function handleImageUpload() {
+        imagePreview.innerHTML = ''; // Clear previous preview
+
+        const files = imageInput.files;
+
+        for (const file of files) {
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            img.alt = 'Uploaded Image';
+            img.style.maxWidth = '100%';
+            img.style.height = 'auto';
+            imagePreview.appendChild(img);
+        }
+    }
+// Notification 
+    let popup = document.getElementById("popup");
+
+    function openPopupContact() {
+        popup.classList.add("open-popup");
+    }
+    function closePopupContact() {
+        popup.classList.remove("open-popup");
+    }
+
+</script>
+
+</html>

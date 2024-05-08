@@ -1,0 +1,152 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CALENDAR</title>
+    <link rel="stylesheet" href="style/date.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/date.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="main-menu">
+        <div class="scrollbar" id="style-1">
+            <ul>
+                <li><a href="admin.html" class="logo">
+                        <img src="imgs/logo.png" alt="">
+                        <span class="nav-item">DashBoard</span>
+                    </a></li>
+                <li><a href="admin.html">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+                <li><a href="approvals.html">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">Approvals</span>
+                    </a></li>
+                <li><a href="date.html">
+                        <i class="fas fa-calendar"></i>
+                        <span class="nav-item">Date's</span>
+                    </a></li>
+
+               
+                <li><a href="signin.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contianer">
+        <div class="calendar">
+            <div class="calendar-header">
+                <span class="month-picker" id="month-picker"> May </span>
+                <div class="year-picker" id="year-picker">
+                    <span class="year-change" id="pre-year">
+                        <pre><</pre>
+                    </span>
+                    <span id="year">2020 </span>
+                    <span class="year-change" id="next-year">
+                        <pre>></pre>
+                    </span>
+                </div>
+            </div>
+
+            <div class="calendar-body">
+                <div class="calendar-week-days">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-days">
+                </div>
+            </div>
+            <div class="calendar-footer">
+            </div>
+            <div class="date-time-formate">
+                <div class="day-text-formate">TODAY</div>
+                <div class="date-time-value">
+                    <div class="time-formate">02:51:20</div>
+                    <div class="date-formate">23 - july - 2022</div>
+                </div>
+            </div>
+            <div class="month-list"></div>
+        </div>
+    </div>
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Estate Appointment</h2>
+            <label for="cityDropdown">Select a City: </label>
+            <select id="cityDropdown">
+
+            </select>
+            <br>
+            <label for="estateDropdown">Select a Estate to Visit:</label>
+            <select id="estateDropdown">
+
+            </select>
+            <br>
+            <label for="timeInput">Select Time:</label>
+            <input type="time" id="timeInput" required>
+            <br>
+            <button onclick="submitAppointment()">Approve Appointment</button>
+        </div>
+    </div>
+    <div class="agents-section">
+        <h3>Agents Available for Visit</h3>
+        <div class="agent-card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <img src="imgs/a06.jpg">
+            <div class="agent-details">
+                <h4>Celine Ozdemir</h4>
+                <p>Phone: +1234567890</p>
+            </div>
+        </div>
+        <div class="agent-card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <img src="imgs/a04.jpg">
+            <div class="agent-details">
+                <h4>Sule Ilkbahar</h4>
+                <p>Phone: +1234567890</p>
+            </div>
+        </div>
+        <div class="agent-card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <img src="imgs/a05.jpg">
+            <div class="agent-details">
+                <h4>Nilhan Topcu</h4>
+                <p>Phone: +1234567890</p>
+            </div>
+        </div>
+        <div class="agent-card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <img src="imgs/a03.jpg">
+            <div class="agent-details">
+                <h4>Criss Massov</h4>
+                <p>Phone: +1234567890</p>
+            </div>
+        </div>
+        <div class="agent-card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <img src="imgs/a01.jpg">
+            <div class="agent-details">
+                <h4>Frank Colard</h4>
+                <p>Phone: +1234567890</p>
+            </div>
+        </div>
+        <div class="agent-card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <img src="imgs/a02.jpg">
+            <div class="agent-details">
+                <h4>Bill Scott</h4>
+                <p>Phone: +1234567890</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

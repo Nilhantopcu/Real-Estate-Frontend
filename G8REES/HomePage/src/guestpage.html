@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G8REES</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" type="text/css" href="style/navbar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .buyHome:hover , .sellHome:hover , .rentHome:hover{
+      background-color: white;
+      box-shadow: 0 0 10px #b47e69;
+    }
+    .content button:hover{
+      background-color:#b47e69;
+      color:whitesmoke;
+      box-shadow: 0 0 10px black;
+    }
+    .sellHome{
+      border-radius: 20px; border: 2px solid #d7d7dd ; padding: 10px; width: 330px; height: 450px; padding-top: 20px;
+    }
+
+    .home-title{
+      color: rosybrown; font-size: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 900;
+color: rosybrown; font-size: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: 900;
+    }
+    .home-subtitle{
+      color: rgb(81, 64, 64); font-size: 15px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .button-home{
+      border-radius: 10px; width: 150px; height: 50px ; color: rgb(164, 102, 91);
+      border-color:rgb(164, 102, 91) ;
+      font-weight: 900;
+    }
+    .home-img{
+      width: 300px; height: 200px; padding: 10px;
+      border-radius: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="topnav">
+    <div class="sidenav">
+      <a style="display : none">Buy</a>
+      <a style="display : none" >Rent</a>
+      <a  style="display : none">Agent Finder</a>
+      <a  style="display : none">Add Property</a>
+    </div>
+    <div class="sidenav logo">
+      <a class="logo-link" href="home.html">
+        <img src="imgs/g8rees.png" alt="Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="sidenav log">
+      <a href="#" class="notification">
+        <span><i class="fa fa-bell" style="scale: 1.2;"></i></span>
+        <span class="badge">!</span>
+      </a>
+      <a href="signin.html">Sign in</a>
+      <a href="signup.html">Sign up</a>
+    </div>
+  </nav>
+
+  <section class="search-container">
+    <div class="search-mid">
+      <div class="search-txt">
+        <p>Agents. Tours. Loans. Homes.</p>
+      </div>
+      <div class="search-mix">
+        <input type="text" class="search-input" placeholder="Search...">
+        <div id="search-icon" class="search-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content" style="display: flex; flex-direction: row; justify-content: space-between; padding-left: 10px; padding-right: 5px; background-color:#e9e9f1 ;padding-top: 30px;">
+    <div class="sellHome" >
+      <p class="home-title">Buy a Home</p>
+      <div>
+        <img src="imgs/buyHome.JPG" alt="buyHome" class="home-img">
+      </div>
+      <div>
+        <p class="home-subtitle">Find your place with an immersive photo experience and the most listings, including things you won’t find
+          anywhere else</p>
+          <a href="buy.html" ><button class="button-home">Browse Homes</button></a>
+      </div>
+    </div>
+    <div class="sellHome" >
+      <p class="home-title">Find Agent</p>
+      <div>
+        <img src="imgs/buyHome.JPG" alt="buyHome" class="home-img">
+      </div>
+      <div>
+        <p class="home-subtitle">Find your place with an immersive photo experience and the most listings, including things you won’t find
+          anywhere else</p>
+          <a href="agent.html" ><button class="button-home">Browse Agents</button></a>
+      </div>
+    </div>
+    <div class="sellHome">
+      <p class="home-title">Sell a Home</p>
+      <div>
+        <img src="imgs/sellHome.JPG" alt="sellHome" class="home-img">
+      </div>
+      <div>
+        <p style="color:rgb(81, 64, 64); font-size: 15px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">No matter what path you take to sell your home, we can help you navigate a successful sale.</p>
+        <a href="addProperty.html" ><button class="button-home">See Your Options</button></a>
+      </div>
+    </div>
+    <div class="sellHome">
+      <p class="home-title">Rent a Home</p>
+      <div>
+        <img src="imgs/rentHome.JPG" alt="sellHome" class="home-img">
+      </div>
+      <div>
+        <p class="home-subtitle">We’re creating a seamless online experience – from shopping on the largest rental network, to applying, to paying rent.</p>
+        <a href="rent.html" ><button class="button-home"">Find Rentals</button></a>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
